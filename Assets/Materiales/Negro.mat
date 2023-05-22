@@ -96,16 +96,16 @@ Material:
     - _OcclusionStrength: 1
     - _OutlinesAcuteDepthThreshold: 3.5
     - _OutlinesAcuteStartDot: 0.9
-    - _OutlinesDepthStrength: 1
+    - _OutlinesDepthStrength: 120.87
     - _OutlinesDepthThreshold: 1
     - _OutlinesDepthTightening: 1.5
     - _OutlinesFarNormalEndDepth: 10
     - _OutlinesFarNormalStartDepth: 1
     - _OutlinesFarNormalThreshold: 2.9
     - _OutlinesNormalStrength: 1
-    - _OutlinesNormalThreshold: 0.76
+    - _OutlinesNormalThreshold: 1.36
     - _OutlinesNormalTightening: 15
-    - _OutlinesThickness: 0.003
+    - _OutlinesThickness: 0.0015
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
