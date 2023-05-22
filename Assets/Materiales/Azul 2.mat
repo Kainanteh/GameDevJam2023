@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Azul 1
+  m_Name: Azul 2
   m_Shader: {fileID: -6465566751694194690, guid: ac2e7105423ced742bfc537e94442cd1, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -101,11 +101,11 @@ Material:
     - _OutlinesDepthTightening: 1.5
     - _OutlinesFarNormalEndDepth: 200
     - _OutlinesFarNormalStartDepth: 1
-    - _OutlinesFarNormalThreshold: 2.9
+    - _OutlinesFarNormalThreshold: 8
     - _OutlinesNormalStrength: 1
     - _OutlinesNormalThreshold: 1.36
     - _OutlinesNormalTightening: 15
-    - _OutlinesThickness: 0.0015
+    - _OutlinesThickness: 0.0005
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -118,7 +118,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.16862741, g: 0.38127443, b: 0.42745098, a: 1}
+    - _BaseColor: {r: 0.21266466, g: 0.29986024, b: 0.764151, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
