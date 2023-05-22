@@ -29,8 +29,6 @@ public class LogicaBoton : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    // Debug.Log("El jugador está apuntando hacia el objeto y ha presionado la tecla 'E'");
-                    // Realiza aquí las acciones que deseas cuando se cumplan las condiciones
                     animator.SetBool(booleanParameterName, true);
                 }
             }
