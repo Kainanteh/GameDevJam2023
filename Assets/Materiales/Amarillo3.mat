@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Negro
+  m_Name: Amarillo3
   m_Shader: {fileID: -6465566751694194690, guid: e5e96a4b8350a784b841237effec3693, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -96,14 +96,14 @@ Material:
     - _OcclusionStrength: 1
     - _OutlinesAcuteDepthThreshold: 3.5
     - _OutlinesAcuteStartDot: 0.9
-    - _OutlinesDepthStrength: 1
+    - _OutlinesDepthStrength: 120.87
     - _OutlinesDepthThreshold: 1
     - _OutlinesDepthTightening: 1.5
     - _OutlinesFarNormalEndDepth: 10
     - _OutlinesFarNormalStartDepth: 1
-    - _OutlinesFarNormalThreshold: 2.9
+    - _OutlinesFarNormalThreshold: 8
     - _OutlinesNormalStrength: 1
-    - _OutlinesNormalThreshold: 0.76
+    - _OutlinesNormalThreshold: 1.36
     - _OutlinesNormalTightening: 15
     - _OutlinesThickness: 0.003
     - _Parallax: 0.005
@@ -118,10 +118,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+    - _BaseColor: {r: 0, g: 0.8784314, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
+    - _OutlineColor: {r: 0.41650993, g: 0.8666667, b: 0.13333333, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8521797850022103157
