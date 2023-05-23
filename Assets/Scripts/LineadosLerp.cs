@@ -12,6 +12,8 @@ public class LineadosLerp : MonoBehaviour
 
     public bool ultimaTransicionCompletada;
 
+    public int IndiceSala = 0;
+    public LogicaSalaFinal LogicaSalaFinalScript;
     private void Start()
     {
         objetosTransicion = GetComponentsInChildren<Transform>();
@@ -32,6 +34,22 @@ public class LineadosLerp : MonoBehaviour
 
         yield return new WaitForSeconds(duracionPausa*7); 
         ultimaTransicionCompletada = true;
+            if(IndiceSala == 1)
+            {
+                LogicaSalaFinalScript.Activador1 = true;
+                LogicaSalaFinalScript.AbrirPuertaFinal();
+            }
+            else if(IndiceSala == 2)
+            {
+                LogicaSalaFinalScript.Activador2 = true;
+                LogicaSalaFinalScript.AbrirPuertaFinal();
+            }
+            else if(IndiceSala == 3)
+            {
+                LogicaSalaFinalScript.Activador3 = true;
+                LogicaSalaFinalScript.AbrirPuertaFinal();
+            }
+
     }
 
     public void ActivarColorLerp()

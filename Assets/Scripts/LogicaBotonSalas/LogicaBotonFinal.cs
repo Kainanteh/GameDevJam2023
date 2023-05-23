@@ -15,7 +15,7 @@ public class LogicaBotonFinal : MonoBehaviour
 
     private Camera mainCamera;
 
-
+   public LineadosLerp LineadosLerpScript;
   
 
     private void Start()
@@ -34,20 +34,25 @@ public class LogicaBotonFinal : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    if(indiceBoton == 1)
+                    // if(indiceBoton == 1)
+                    // {
+                    //     LogicaSalaFinalScript.Activador1 = true;
+                    //     LogicaSalaFinalScript.AbrirPuertaFinal();
+                    // }
+                    // else if(indiceBoton == 2)
+                    // {
+                    //     LogicaSalaFinalScript.Activador2 = true;
+                    //     LogicaSalaFinalScript.AbrirPuertaFinal();
+                    // }
+                    // else if(indiceBoton == 3)
+                    // {
+                    //     LogicaSalaFinalScript.Activador3 = true;
+                    //     LogicaSalaFinalScript.AbrirPuertaFinal();
+                    // }
+
+                    if(LineadosLerpScript != null)
                     {
-                        LogicaSalaFinalScript.Activador1 = true;
-                        LogicaSalaFinalScript.AbrirPuertaFinal();
-                    }
-                    else if(indiceBoton == 2)
-                    {
-                        LogicaSalaFinalScript.Activador2 = true;
-                        LogicaSalaFinalScript.AbrirPuertaFinal();
-                    }
-                    else if(indiceBoton == 3)
-                    {
-                        LogicaSalaFinalScript.Activador3 = true;
-                        LogicaSalaFinalScript.AbrirPuertaFinal();
+                        LineadosLerpScript.ActivarColorLerp();
                     }
 
                 }
