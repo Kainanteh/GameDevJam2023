@@ -11,6 +11,7 @@ public class FirstPersonLook : MonoBehaviour
     Vector2 appliedMouseDelta;
     Vector2 rawInput;
 
+    public bool estatico = false;
 
     void Awake()
     {
@@ -24,7 +25,12 @@ public class FirstPersonLook : MonoBehaviour
 
     void LateUpdate()
     {
+        if(estatico == false)
+        {
+            
         RotateCamera();
+
+        }
     }
 
     void OnLook(InputValue value)

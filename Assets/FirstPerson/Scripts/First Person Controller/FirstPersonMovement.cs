@@ -7,9 +7,14 @@ public class FirstPersonMovement : MonoBehaviour
     Vector2 velocity;
     Vector2 rawInput;
 
+    public bool estatico = false;
+
     void FixedUpdate()
     {
-        MoveCharacter();
+        if(estatico == false)
+        {
+            MoveCharacter();
+        }
     }
 
     void MoveCharacter()

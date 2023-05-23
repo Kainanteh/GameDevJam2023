@@ -11,7 +11,10 @@ public class LogicaOrdenador : MonoBehaviour
 
     private Camera mainCamera;
 
+    public Camera ordenadorCamera;
 
+    public FirstPersonMovement FirstPersonMovementScript;
+    public FirstPersonLook FirstPersonLookScript;
 
     private void Start()
     {
@@ -29,7 +32,20 @@ public class LogicaOrdenador : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    Debug.Log("ordenador");
+                    if(mainCamera.enabled == true)
+                    {
+                        mainCamera.enabled = false; 
+                        ordenadorCamera.enabled = true; 
+                        FirstPersonMovementScript.estatico=true;
+                        FirstPersonLookScript.estatico=true;
+                    }
+                    else
+                    {
+                        mainCamera.enabled = true; 
+                        ordenadorCamera.enabled = false; 
+                        FirstPersonMovementScript.estatico=false;
+                        FirstPersonLookScript.estatico=false;
+                    }
                 }
             }
         }
