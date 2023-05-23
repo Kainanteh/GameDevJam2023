@@ -13,6 +13,8 @@ public class LogicaBoton : MonoBehaviour
     public Animator animator;
     public string booleanParameterName = "IsTrue";
 
+    public LineadosLerp LineadosLerpScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -30,6 +32,10 @@ public class LogicaBoton : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     animator.SetBool(booleanParameterName, true);
+                    if(LineadosLerpScript != null)
+                    {
+                        LineadosLerpScript.ActivarColorLerp();
+                    }
                 }
             }
         }
