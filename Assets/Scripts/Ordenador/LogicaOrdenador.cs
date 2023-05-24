@@ -7,6 +7,9 @@ public class LogicaOrdenador : MonoBehaviour
 
     public enum Direccion{ Arriba, Abajo, Derecha, Izquierda }
     private Direccion direccionAleatoria;
+    public int DireccionIndex = 0;
+
+    public List<GameObject> DireccionObject;
 
    public KeyCode interactionKey = KeyCode.E;
     public float interactionRange = 2f;
@@ -20,6 +23,11 @@ public class LogicaOrdenador : MonoBehaviour
     public FirstPersonLook FirstPersonLookScript;
 
     public bool JugadorEnOrdenador = false;
+
+    private bool coroutineEjecutandose = false;
+    public float tiempocoroutine = 2f;
+
+    public GameObject Texto;
 
     private void Start()
     {
@@ -44,6 +52,10 @@ public class LogicaOrdenador : MonoBehaviour
                         FirstPersonMovementScript.estatico=true;
                         FirstPersonLookScript.estatico=true;
                         JugadorEnOrdenador = true;
+                        GenerarDireccionAleatoria();
+                        DireccionObjectFalse();
+                        DireccionObject[DireccionIndex].SetActive(true);
+
                     }
                     else
                     {
@@ -62,30 +74,47 @@ public class LogicaOrdenador : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                DireccionObjectFalse();
                 ComprobarDireccion(Direccion.Arriba);
+                DireccionObject[DireccionIndex].SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                DireccionObjectFalse();
                 ComprobarDireccion(Direccion.Abajo);
+                DireccionObject[DireccionIndex].SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                DireccionObjectFalse();
                 ComprobarDireccion(Direccion.Derecha);
+                DireccionObject[DireccionIndex].SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                DireccionObjectFalse();
                 ComprobarDireccion(Direccion.Izquierda);
+                DireccionObject[DireccionIndex].SetActive(true);
             }
 
+        }
+
+        if (!coroutineEjecutandose)
+        {
+            StartCoroutine(ActivarDesactivarGameObject(DireccionObject[DireccionIndex]));
+            StartCoroutine(ActivarDesactivarGameObject(Texto));
         }
         
     }
 
-
     private void GenerarDireccionAleatoria()
     {
-        direccionAleatoria = (Direccion)Random.Range(0, 4);
+        
+        int indice = Random.Range(0, 4);
+        direccionAleatoria = (Direccion)indice;
         Debug.Log("Dirección aleatoria generada: " + direccionAleatoria);
+        DireccionIndex =  indice;
+        
     }
 
     private void ComprobarDireccion(Direccion direccionJugador)
@@ -102,5 +131,29 @@ public class LogicaOrdenador : MonoBehaviour
         }
     }
 
+    private void DireccionObjectFalse()
+    {
+
+        foreach(GameObject objectdir in DireccionObject)
+        {
+
+            objectdir.SetActive(false);
+
+        }
+
+    }
+
+    private System.Collections.IEnumerator ActivarDesactivarGameObject(GameObject objeto)
+    {
+        coroutineEjecutandose = true;
+
+            objeto.SetActive(false);
+            yield return new WaitForSeconds(tiempocoroutine);
+            objeto.SetActive(true);
+            yield return new WaitForSeconds(tiempocoroutine);
+
+        coroutineEjecutandose = false;
+        
+    }
 
 }
