@@ -15,6 +15,8 @@ public class LogicaBoton : MonoBehaviour
 
     public LineadosLerp LineadosLerpScript;
 
+    public Animator animatorBoton;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -32,6 +34,7 @@ public class LogicaBoton : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     animator.SetBool(booleanParameterName, true);
+                    animatorBoton.SetBool("BotonPulsado", true);
                     if(LineadosLerpScript != null)
                     {
                         LineadosLerpScript.ActivarColorLerp();

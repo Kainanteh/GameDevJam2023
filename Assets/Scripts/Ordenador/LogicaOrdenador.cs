@@ -29,6 +29,8 @@ public class LogicaOrdenador : MonoBehaviour
 
     public GameObject Texto;
 
+    public int FallosMision = 0;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -123,11 +125,13 @@ public class LogicaOrdenador : MonoBehaviour
         {
             Debug.Log("¡Correcto! Dirección elegida correctamente.");
             GenerarDireccionAleatoria();
+            FallosMision = 0;
         }
         else
         {
             Debug.Log("Incorrecto. Intenta de nuevo.");
             GenerarDireccionAleatoria();
+            FallosMision++;
         }
     }
 
