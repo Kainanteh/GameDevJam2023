@@ -166,7 +166,7 @@ public class LogicaOrdenador : MonoBehaviour
         {
             logicaPuertaScript.PuertaActivada = true;
             MisionCheck = true;
-            Texto.GetComponent<TextMeshProUGUI>().text = "¡Puerta Abierta!";
+            Texto.GetComponent<TextMeshProUGUI>().text = "¡Door Open!";
             LogicaBotonScript.BotonAbierto();
             LogicaBotonScript.botonabierto = true;
           
