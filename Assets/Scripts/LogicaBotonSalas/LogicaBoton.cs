@@ -10,21 +10,34 @@ public class LogicaBoton : MonoBehaviour
 
     private Camera mainCamera;
 
-    public Animator animator;
+    // public Animator animator;
     public string booleanParameterName = "IsTrue";
+
+    public Animator animatorBotonAbierto;
 
     public LineadosLerp LineadosLerpScript;
 
     public Animator animatorBoton;
+    public bool botonabierto = false;
 
     private void Start()
     {
         mainCamera = Camera.main;
     }
 
+
+    public void BotonAbierto()
+    {
+
+        animatorBotonAbierto.SetBool("BotonAbierto", true);
+
+    }
+
+
+
     private void Update()
     {
-        if (Input.GetKeyDown(interactionKey))
+        if (Input.GetKeyDown(interactionKey) && botonabierto == true)
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

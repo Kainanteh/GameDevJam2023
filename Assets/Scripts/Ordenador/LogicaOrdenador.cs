@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LogicaOrdenador : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class LogicaOrdenador : MonoBehaviour
 
     public bool JugadorEnOrdenador = false;
 
-    private bool coroutineEjecutandose = false;
+    public bool coroutineEjecutandose = false;
     public float tiempocoroutine = 2f;
 
     public GameObject Texto;
@@ -33,6 +34,12 @@ public class LogicaOrdenador : MonoBehaviour
 
     public LogicaPuerta logicaPuertaScript;
 
+    public List<GameObject> FGameObject;
+
+    public bool MisionCheck = false;
+
+    public LogicaBoton LogicaBotonScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -40,6 +47,10 @@ public class LogicaOrdenador : MonoBehaviour
 
     private void Update()
     {
+
+        if(MisionCheck == false)
+        {
+
         if (Input.GetKeyDown(interactionKey))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -101,13 +112,26 @@ public class LogicaOrdenador : MonoBehaviour
                 DireccionObject[DireccionIndex].SetActive(true);
             }
 
-        }
-
-        if (!coroutineEjecutandose)
+        if (coroutineEjecutandose == false)
         {
-            StartCoroutine(ActivarDesactivarGameObject(DireccionObject[DireccionIndex]));
+            // StartCoroutine(ActivarDesactivarGameObject(DireccionObject[DireccionIndex]));
             StartCoroutine(ActivarDesactivarGameObject(Texto));
         }
+
+        }
+
+        }
+        else
+        {
+              DireccionObjectFalse();
+                                  mainCamera.enabled = true; 
+                        ordenadorCamera.enabled = false; 
+                        FirstPersonMovementScript.estatico=false;
+                        FirstPersonLookScript.estatico=false;
+                        JugadorEnOrdenador = false;
+        }
+
+   
         
     }
 
@@ -128,17 +152,24 @@ public class LogicaOrdenador : MonoBehaviour
             Debug.Log("¡Correcto! Dirección elegida correctamente.");
             GenerarDireccionAleatoria();
             FallosMision = 0;
+            FObjectFalse();
         }
         else
         {
             Debug.Log("Incorrecto. Intenta de nuevo.");
             GenerarDireccionAleatoria();
             FallosMision++;
+            FGameObject[FallosMision-1].SetActive(true);
         }
 
         if(FallosMision == 3)
         {
             logicaPuertaScript.PuertaActivada = true;
+            MisionCheck = true;
+            Texto.GetComponent<TextMeshProUGUI>().text = "¡Puerta Abierta!";
+            LogicaBotonScript.BotonAbierto();
+            LogicaBotonScript.botonabierto = true;
+          
         }
 
     }
@@ -155,6 +186,18 @@ public class LogicaOrdenador : MonoBehaviour
 
     }
 
+        private void FObjectFalse()
+    {
+
+        foreach(GameObject objectf in FGameObject)
+        {
+
+            objectf.SetActive(false);
+
+        }
+
+    }
+
     private System.Collections.IEnumerator ActivarDesactivarGameObject(GameObject objeto)
     {
         coroutineEjecutandose = true;
@@ -165,6 +208,7 @@ public class LogicaOrdenador : MonoBehaviour
             yield return new WaitForSeconds(tiempocoroutine);
 
         coroutineEjecutandose = false;
+        
         
     }
 
