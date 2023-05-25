@@ -31,6 +31,8 @@ public class LogicaOrdenador : MonoBehaviour
 
     public int FallosMision = 0;
 
+    public LogicaPuerta logicaPuertaScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -133,6 +135,12 @@ public class LogicaOrdenador : MonoBehaviour
             GenerarDireccionAleatoria();
             FallosMision++;
         }
+
+        if(FallosMision == 3)
+        {
+            logicaPuertaScript.PuertaActivada = true;
+        }
+
     }
 
     private void DireccionObjectFalse()
