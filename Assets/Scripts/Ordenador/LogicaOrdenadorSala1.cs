@@ -55,8 +55,9 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                     {
                         if(mainCamera.enabled == true)
                         {
-                            mainCamera.enabled = false; 
                             ordenadorCamera.enabled = true; 
+                            mainCamera.enabled = false; 
+                            
                             FirstPersonMovementScript.estatico=true;
                             FirstPersonLookScript.estatico=true;
                             JugadorEnOrdenador = true;
@@ -64,8 +65,9 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                         }
                         else
                         {
-                            mainCamera.enabled = true; 
                             ordenadorCamera.enabled = false; 
+                            mainCamera.enabled = true; 
+
                             FirstPersonMovementScript.estatico=false;
                             FirstPersonLookScript.estatico=false;
                             JugadorEnOrdenador = false;
