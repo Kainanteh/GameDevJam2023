@@ -24,6 +24,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
 
     public GameObject Texto;
     public GameObject Texto_abajo;
+    public GameObject Texto_input;
 
 
     public bool MisionCheck = false;
@@ -37,6 +38,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        GenerarNumero();
     }
 
     private void Update()
@@ -62,7 +64,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
                             FirstPersonMovementScript.estatico=true;
                             FirstPersonLookScript.estatico=true;
                             JugadorEnOrdenador = true;
-                             GenerarNumero();
+                             
 
                         }
                         else
@@ -81,25 +83,61 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
             if(JugadorEnOrdenador == true)
             {
     
-               
+                    if(Input.anyKeyDown && ( 
+                    Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0) || 
+                    Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) || 
+                    Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) ||  
+                    Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) ||  
+                    Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4) ||  
+                    Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5) ||  
+                    Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6) ||  
+                    Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7) ||  
+                    Input.GetKeyDown(KeyCode.Alpha8) || Input.GetKeyDown(KeyCode.Keypad8) ||
+                    Input.GetKeyDown(KeyCode.Alpha9) || Input.GetKeyDown(KeyCode.Keypad9)
+                    ))
+                {
+                    
+                    inputRecogido += Input.inputString;
+                    Texto_input.GetComponent<TextMeshProUGUI>().text = inputRecogido;
+            
+
+                }
+                else if(Input.anyKeyDown &&
+                    (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKey ("enter")))
+                {
+                    Texto_input.GetComponent<TextMeshProUGUI>().text = "";
+                    // inputRecogido = "0";
+                    if(inputRecogido == numeroAleatorio.ToString())
+                    {
+                        MisionCheck = true;
+                        Texto.GetComponent<TextMeshProUGUI>().text = "¡Check!";
+                        LogicaBotonScript.BotonAbierto();
+                        LogicaBotonScript.botonabierto = true;
+
+                                   mainCamera.enabled = true; 
+                        ordenadorCamera.enabled = false; 
+                        FirstPersonMovementScript.estatico=false;
+                        FirstPersonLookScript.estatico=false;
+                        JugadorEnOrdenador = false;
+                    }
+                    else
+                    {
+                        Texto.GetComponent<TextMeshProUGUI>().text = "Error, try again";
+                        inputRecogido = "0";
+                    }
+
+                }
+
 
                 if (coroutineEjecutandose == false)
                 {
-                    StartCoroutine(ActivarDesactivarGameObject(Texto));
+                    // StartCoroutine(ActivarDesactivarGameObject(Texto));
                 }
 
             }
 
         }
-        else
-        {
-       
-                        mainCamera.enabled = true; 
-                        ordenadorCamera.enabled = false; 
-                        FirstPersonMovementScript.estatico=false;
-                        FirstPersonLookScript.estatico=false;
-                        JugadorEnOrdenador = false;
-        }
+ 
 
    
         

@@ -36,7 +36,7 @@ public class LogicaOrdenador : MonoBehaviour
 
     public List<GameObject> FGameObject;
 
-    public bool MisionCheck = false;
+    public bool MisionCheckSala0 = false;
 
     public LogicaBoton LogicaBotonScript;
 
@@ -48,89 +48,86 @@ public class LogicaOrdenador : MonoBehaviour
     private void Update()
     {
 
-        if(MisionCheck == false)
+        if(MisionCheckSala0 == false)
         {
 
-        if (Input.GetKeyDown(interactionKey))
-        {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, interactionRange, interactionLayer))
+            if (Input.GetKeyDown(interactionKey))
             {
-                if (hit.collider.gameObject == gameObject)
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, interactionRange, interactionLayer))
                 {
-                    if(mainCamera.enabled == true)
+                    if (hit.collider.gameObject == gameObject)
                     {
-                        ordenadorCamera.enabled = true; 
-                        mainCamera.enabled = false; 
+                        if(mainCamera.enabled == true)
+                        {
+                            ordenadorCamera.enabled = true; 
+                            mainCamera.enabled = false; 
 
-                        FirstPersonMovementScript.estatico=true;
-                        FirstPersonLookScript.estatico=true;
-                        JugadorEnOrdenador = true;
-                        GenerarDireccionAleatoria();
-                        DireccionObjectFalse();
-                        DireccionObject[DireccionIndex].SetActive(true);
+                            FirstPersonMovementScript.estatico=true;
+                            FirstPersonLookScript.estatico=true;
+                            JugadorEnOrdenador = true;
+                            GenerarDireccionAleatoria();
+                            DireccionObjectFalse();
+                            DireccionObject[DireccionIndex].SetActive(true);
 
-                    }
-                    else
-                    {
-                        ordenadorCamera.enabled = false; 
-                        mainCamera.enabled = true; 
+                            
 
-                        FirstPersonMovementScript.estatico=false;
-                        FirstPersonLookScript.estatico=false;
-                        JugadorEnOrdenador = false;
+                        }
+                        else
+                        {
+                            ordenadorCamera.enabled = false; 
+                            mainCamera.enabled = true; 
+
+                            FirstPersonMovementScript.estatico=false;
+                            FirstPersonLookScript.estatico=false;
+                            JugadorEnOrdenador = false;
+                        }
                     }
                 }
             }
-        }
 
-        if(JugadorEnOrdenador == true)
-        {
+            if(JugadorEnOrdenador == true)
+            {
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                DireccionObjectFalse();
-                ComprobarDireccion(Direccion.Arriba);
-                DireccionObject[DireccionIndex].SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                DireccionObjectFalse();
-                ComprobarDireccion(Direccion.Abajo);
-                DireccionObject[DireccionIndex].SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                DireccionObjectFalse();
-                ComprobarDireccion(Direccion.Derecha);
-                DireccionObject[DireccionIndex].SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                DireccionObjectFalse();
-                ComprobarDireccion(Direccion.Izquierda);
-                DireccionObject[DireccionIndex].SetActive(true);
-            }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    DireccionObjectFalse();
+                    ComprobarDireccion(Direccion.Arriba);
+                    DireccionObject[DireccionIndex].SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    DireccionObjectFalse();
+                    ComprobarDireccion(Direccion.Abajo);
+                    DireccionObject[DireccionIndex].SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    DireccionObjectFalse();
+                    ComprobarDireccion(Direccion.Derecha);
+                    DireccionObject[DireccionIndex].SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    DireccionObjectFalse();
+                    ComprobarDireccion(Direccion.Izquierda);
+                    DireccionObject[DireccionIndex].SetActive(true);
+                }
 
-        if (coroutineEjecutandose == false)
-        {
-            // StartCoroutine(ActivarDesactivarGameObject(DireccionObject[DireccionIndex]));
-            StartCoroutine(ActivarDesactivarGameObject(Texto));
-        }
+                if (coroutineEjecutandose == false)
+                {
+                    // StartCoroutine(ActivarDesactivarGameObject(DireccionObject[DireccionIndex]));
+                    StartCoroutine(ActivarDesactivarGameObject(Texto));
+                }
 
-        }
+            }
 
         }
         else
         {
-              DireccionObjectFalse();
-                                  mainCamera.enabled = true; 
-                        ordenadorCamera.enabled = false; 
-                        FirstPersonMovementScript.estatico=false;
-                        FirstPersonLookScript.estatico=false;
-                        JugadorEnOrdenador = false;
+           
         }
 
    
@@ -167,11 +164,18 @@ public class LogicaOrdenador : MonoBehaviour
         if(FallosMision == 3)
         {
             logicaPuertaScript.PuertaActivada = true;
-            MisionCheck = true;
+            MisionCheckSala0 = true;
             Texto.GetComponent<TextMeshProUGUI>().text = "¡Door Open!";
             LogicaBotonScript.BotonAbierto();
             LogicaBotonScript.botonabierto = true;
           
+
+             DireccionObjectFalse();
+                                  mainCamera.enabled = true; 
+                        ordenadorCamera.enabled = false; 
+                        FirstPersonMovementScript.estatico=false;
+                        FirstPersonLookScript.estatico=false;
+                        JugadorEnOrdenador = false;
         }
 
     }
