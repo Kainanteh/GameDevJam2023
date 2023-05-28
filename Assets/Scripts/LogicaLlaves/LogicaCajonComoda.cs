@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicaBotonSala3 : MonoBehaviour
+public class LogicaCajonComoda : MonoBehaviour
 {
     public KeyCode interactionKey = KeyCode.E;
     public float interactionRange = 2f;
@@ -10,27 +10,17 @@ public class LogicaBotonSala3 : MonoBehaviour
 
     private Camera mainCamera;
 
+    public Animator cajonAnimator;
 
-    public Animator animatorBotonAbierto;
+    public GameObject LLave_objeto;
+    public bool cajon_abierto;
 
-    public Animator animatorBoton;
-
-    public LogicaBoton LogicaBotonScript;
+    public LogicaCerraduras logicaCerradurasScript;
 
     private void Start()
     {
         mainCamera = Camera.main;
     }
-
-
-    public void BotonAbierto()
-    {
-
-        animatorBotonAbierto.SetBool("BotonAbierto", true);
-
-    }
-
-
 
     private void Update()
     {
@@ -43,12 +33,19 @@ public class LogicaBotonSala3 : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    // animator.SetBool(booleanParameterName, true);
-                    animatorBoton.SetBool("BotonPulsado", true);
-                    LogicaBotonScript.BotonAbierto();
-                    LogicaBotonScript.botonabierto = true;
-                    
-                
+
+                    if(cajon_abierto == false)
+                    {
+                        cajonAnimator.SetBool("cajon_abierto", true);
+                        cajon_abierto = true;
+                    }
+                    else
+                    {
+                        LLave_objeto.SetActive(false);
+                        logicaCerradurasScript.Llave_Sala_2 = true;
+                    }
+
+            
                 }
             }
         }

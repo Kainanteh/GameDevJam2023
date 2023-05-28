@@ -34,6 +34,9 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
     public string inputRecogido;
     public int numeroAleatorio;
 
+    public LogicaInteractuable LogicaInteractuableScript;
+
+
 
     private void Start()
     {
@@ -64,6 +67,8 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
                             FirstPersonMovementScript.estatico=true;
                             FirstPersonLookScript.estatico=true;
                             JugadorEnOrdenador = true;
+                            LogicaInteractuableScript.desactivarUI = true;
+                            LogicaInteractuableScript.Mano.SetActive(false);
                              
 
                         }
@@ -75,6 +80,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
                             FirstPersonMovementScript.estatico=false;
                             FirstPersonLookScript.estatico=false;
                             JugadorEnOrdenador = false;
+                            LogicaInteractuableScript.desactivarUI = false;
                         }
                     }
                 }
@@ -119,11 +125,12 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
                         FirstPersonMovementScript.estatico=false;
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
+                        LogicaInteractuableScript.desactivarUI = false;
                     }
                     else
                     {
                         Texto.GetComponent<TextMeshProUGUI>().text = "Error, try again";
-                        inputRecogido = "0";
+                        inputRecogido = "";
                     }
 
                 }

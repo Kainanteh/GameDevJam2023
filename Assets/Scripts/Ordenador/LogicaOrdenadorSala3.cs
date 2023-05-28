@@ -21,6 +21,7 @@ public class LogicaOrdenadorSala3 : MonoBehaviour
     public bool coroutineEjecutandose = false;
     public float tiempocoroutine = 2f;
 
+    public LogicaInteractuable LogicaInteractuableScript;
 
 
 
@@ -53,6 +54,8 @@ public class LogicaOrdenadorSala3 : MonoBehaviour
                             FirstPersonMovementScript.estatico=true;
                             FirstPersonLookScript.estatico=true;
                             JugadorEnOrdenador = true;
+                            LogicaInteractuableScript.desactivarUI = true;
+                            LogicaInteractuableScript.Mano.SetActive(false);
                              
 
                         }
@@ -64,6 +67,7 @@ public class LogicaOrdenadorSala3 : MonoBehaviour
                             FirstPersonMovementScript.estatico=false;
                             FirstPersonLookScript.estatico=false;
                             JugadorEnOrdenador = false;
+                            LogicaInteractuableScript.desactivarUI = false;
                         }
                     }
                 }

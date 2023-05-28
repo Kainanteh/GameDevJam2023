@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicaBotonSala3 : MonoBehaviour
+public class LogicaAltarSol : MonoBehaviour
 {
     public KeyCode interactionKey = KeyCode.E;
     public float interactionRange = 2f;
@@ -11,26 +11,15 @@ public class LogicaBotonSala3 : MonoBehaviour
     private Camera mainCamera;
 
 
-    public Animator animatorBotonAbierto;
+    public GameObject sol;
+    public bool sol_cogido;
 
-    public Animator animatorBoton;
-
-    public LogicaBoton LogicaBotonScript;
+    public LogicaSolLuna logicaSolLunaScript ;
 
     private void Start()
     {
         mainCamera = Camera.main;
     }
-
-
-    public void BotonAbierto()
-    {
-
-        animatorBotonAbierto.SetBool("BotonAbierto", true);
-
-    }
-
-
 
     private void Update()
     {
@@ -43,12 +32,22 @@ public class LogicaBotonSala3 : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    // animator.SetBool(booleanParameterName, true);
-                    animatorBoton.SetBool("BotonPulsado", true);
-                    LogicaBotonScript.BotonAbierto();
-                    LogicaBotonScript.botonabierto = true;
-                    
-                
+
+                    if(sol_cogido == false)
+                    {
+                        sol_cogido = true;
+                        sol.SetActive(false);
+                        logicaSolLunaScript.Sol = true;
+                    }
+                    else
+                    {
+                        sol_cogido = false;
+                        sol.SetActive(true);
+                        logicaSolLunaScript.Sol = false;
+                    }
+                 
+
+            
                 }
             }
         }
