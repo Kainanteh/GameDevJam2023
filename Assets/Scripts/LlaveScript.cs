@@ -9,13 +9,6 @@ public class LlaveScript : MonoBehaviour
 
     public int index;
 
-    public void LLaveIntroducida( )
-    {
-
-        LogicaCerradurasScript.LLaveIntroducida(index);
-        
-
-    }
 
 
 }

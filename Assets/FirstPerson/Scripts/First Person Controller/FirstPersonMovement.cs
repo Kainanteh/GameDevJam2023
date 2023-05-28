@@ -9,6 +9,10 @@ public class FirstPersonMovement : MonoBehaviour
 
     public bool estatico = false;
 
+
+
+  
+
     void FixedUpdate()
     {
         if(estatico == false)
@@ -28,4 +32,7 @@ public class FirstPersonMovement : MonoBehaviour
     {
         rawInput = value.Get<Vector2>();
     }
+
+
+ 
 }
