@@ -20,6 +20,10 @@ public class LogicaBoton : MonoBehaviour
     public Animator animatorBoton;
     public bool botonabierto = false;
 
+    public bool botonpulsado = false;
+
+    public LogicaInteractuable LogicaInteractuableScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -30,6 +34,7 @@ public class LogicaBoton : MonoBehaviour
     {
 
         animatorBotonAbierto.SetBool("BotonAbierto", true);
+        LogicaInteractuableScript.desactivarUI = false;
 
     }
 
@@ -48,9 +53,10 @@ public class LogicaBoton : MonoBehaviour
                 {
                     // animator.SetBool(booleanParameterName, true);
                     animatorBoton.SetBool("BotonPulsado", true);
-                    if(LineadosLerpScript != null)
+                    if(LineadosLerpScript != null && botonpulsado == false)
                     {
                         LineadosLerpScript.ActivarColorLerp();
+                        botonpulsado = true;
                     }
                 }
             }

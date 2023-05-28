@@ -11,6 +11,8 @@ public class LogicaInteractuable : MonoBehaviour
 
     public GameObject Mano;
 
+    public bool desactivarUI = false;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -19,24 +21,26 @@ public class LogicaInteractuable : MonoBehaviour
     void Update()
     {
 
+        if(desactivarUI == false)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, interactionRange, interactionLayer))
-            {
-                if (hit.collider.gameObject == gameObject)
+                if (Physics.Raycast(ray, out hit, interactionRange, interactionLayer))
                 {
-                    Mano.SetActive(true);
-                }
-           
+                    if (hit.collider.gameObject == gameObject)
+                    {
+                        Mano.SetActive(true);
+                    }
+            
 
-            }
-            else
-            {
-                Mano.SetActive(false);
-            }
+                }
+                else
+                {
+                    Mano.SetActive(false);
+                }
         }
+    }
 
 
 }

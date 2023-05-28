@@ -8,8 +8,6 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
 
 
 
-
-
    public KeyCode interactionKey = KeyCode.E;
     public float interactionRange = 2f;
     public LayerMask interactionLayer;
@@ -37,6 +35,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
     public string inputRecogido;
     public int numeroAleatorio;
 
+    public LogicaInteractuable LogicaInteractuableScript;
 
     private void Start()
     {
@@ -66,6 +65,8 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                             FirstPersonMovementScript.estatico=true;
                             FirstPersonLookScript.estatico=true;
                             JugadorEnOrdenador = true;
+                            LogicaInteractuableScript.desactivarUI = true;
+                            LogicaInteractuableScript.Mano.SetActive(false);
 
                         }
                         else
@@ -76,6 +77,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                             FirstPersonMovementScript.estatico=false;
                             FirstPersonLookScript.estatico=false;
                             JugadorEnOrdenador = false;
+                            LogicaInteractuableScript.desactivarUI = false;
                         }
                     }
                 }
@@ -111,6 +113,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                         FirstPersonMovementScript.estatico=false;
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
+                          LogicaInteractuableScript.desactivarUI = false;
                     }
                     else
                     {

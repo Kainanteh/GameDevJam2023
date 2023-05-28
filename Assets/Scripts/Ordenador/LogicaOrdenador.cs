@@ -40,6 +40,8 @@ public class LogicaOrdenador : MonoBehaviour
 
     public LogicaBoton LogicaBotonScript;
 
+    public LogicaInteractuable LogicaInteractuableScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -71,6 +73,8 @@ public class LogicaOrdenador : MonoBehaviour
                             GenerarDireccionAleatoria();
                             DireccionObjectFalse();
                             DireccionObject[DireccionIndex].SetActive(true);
+                            LogicaInteractuableScript.desactivarUI = true;
+                            LogicaInteractuableScript.Mano.SetActive(false);
 
                             
 
@@ -83,6 +87,8 @@ public class LogicaOrdenador : MonoBehaviour
                             FirstPersonMovementScript.estatico=false;
                             FirstPersonLookScript.estatico=false;
                             JugadorEnOrdenador = false;
+                            LogicaInteractuableScript.desactivarUI = false;
+                            
                         }
                     }
                 }
@@ -176,6 +182,7 @@ public class LogicaOrdenador : MonoBehaviour
                         FirstPersonMovementScript.estatico=false;
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
+                        LogicaInteractuableScript.desactivarUI = false;
         }
 
     }
