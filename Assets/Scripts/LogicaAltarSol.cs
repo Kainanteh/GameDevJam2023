@@ -30,25 +30,32 @@ public class LogicaAltarSol : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, interactionRange, interactionLayer))
             {
-                if (hit.collider.gameObject == gameObject)
+
+                if(logicaSolLunaScript.Luna == false)
                 {
 
-                    if(sol_cogido == false)
+                    if (hit.collider.gameObject == gameObject)
                     {
-                        sol_cogido = true;
-                        sol.SetActive(false);
-                        logicaSolLunaScript.Sol = true;
-                    }
-                    else
-                    {
-                        sol_cogido = false;
-                        sol.SetActive(true);
-                        logicaSolLunaScript.Sol = false;
-                    }
-                 
 
-            
+                        if(sol_cogido == false)
+                        {
+                            sol_cogido = true;
+                            sol.SetActive(false);
+                            logicaSolLunaScript.Sol = true;
+                        }
+                        else
+                        {
+                            sol_cogido = false;
+                            sol.SetActive(true);
+                            logicaSolLunaScript.Sol = false;
+                        }
+                    
+
+                
+                    }
+
                 }
+
             }
         }
     }

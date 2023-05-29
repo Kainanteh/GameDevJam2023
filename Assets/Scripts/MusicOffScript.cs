@@ -8,8 +8,24 @@ public class MusicOffScript : MonoBehaviour
     public float raycastDistance = Mathf.Infinity;
 
     public AudioSource audioSource;
+    public AudioSource audioSourcemal;
+    public float targetVolume;
+    public float transitionSpeed = 1f;
+
+    public float currentVolume;
+    public float currentVolumemal;
 
     public float volumen;
+
+        public float targetVolumemal;
+
+
+
+    void Start()
+    {
+        currentVolume = audioSource.volume;
+        currentVolumemal = audioSourcemal.volume;
+    }
 
     void Update()
     {
@@ -18,14 +34,21 @@ public class MusicOffScript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance, skyLayer))
         {
-
-            audioSource.volume = 0;
-           
-    
+            targetVolume = 0f;
+            targetVolumemal = volumen;
         }
         else
         {
-            audioSource.volume = volumen;
-        }     
+            targetVolume = volumen;
+            targetVolumemal = 0f;
+        }
+
+    
+        currentVolume = Mathf.Lerp(currentVolume, targetVolume, transitionSpeed * Time.deltaTime);
+        currentVolumemal = Mathf.Lerp(currentVolumemal, targetVolumemal, transitionSpeed * Time.deltaTime);
+
+        audioSource.volume = currentVolume;
+        audioSourcemal.volume = currentVolumemal;
     }
+
 }
