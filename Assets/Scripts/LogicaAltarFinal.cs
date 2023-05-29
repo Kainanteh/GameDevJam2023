@@ -47,6 +47,8 @@ public class LogicaAltarFinal : MonoBehaviour
 
                         SolObject.SetActive(true);
                         
+                        CinematicaAnimator.enabled = true;
+
                         mainCamera.enabled = false; 
                         CamaraCinematica.enabled = true; 
                         firstPersonMovementScript.estatico=true;
