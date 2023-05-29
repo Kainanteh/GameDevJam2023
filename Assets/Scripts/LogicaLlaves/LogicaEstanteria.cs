@@ -18,6 +18,8 @@ public class LogicaEstanteria : MonoBehaviour
 
     public LogicaInteractuable logicaInteractuableScript;
 
+       public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -41,6 +43,7 @@ public class LogicaEstanteria : MonoBehaviour
                         LLave_objeto.SetActive(false);
                         logicaCerradurasScript.Llave_Sala_3 = true;
                         logicaInteractuableScript.desactivarUI = true;
+                          disparadorSonidosScript.DispararSonido(9);
                     }
                  
 

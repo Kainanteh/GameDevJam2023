@@ -37,6 +37,9 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
 
     public LogicaInteractuable LogicaInteractuableScript;
 
+    public DisparadorSonidos disparadorSonidosScript;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -114,6 +117,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
                           LogicaInteractuableScript.desactivarUI = true;
+                                      disparadorSonidosScript.DispararSonido(2);
                     }
                     else
                     {
@@ -121,6 +125,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                         TextoAbajoBorrar(Texto_abajo,"|");
                         TextoAbajoBorrar(Texto,"?");
                         inputRecogido = "0";
+                                    disparadorSonidosScript.DispararSonido(0);
                     }
 
                 }

@@ -25,6 +25,10 @@ public class LogicaAltarFinal : MonoBehaviour
 
     public Animator CinematicaAnimator;
 
+
+      public DisparadorSonidos disparadorSonidosScript;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -56,6 +60,7 @@ public class LogicaAltarFinal : MonoBehaviour
                         logicaInteractuableScript.desactivarUI=true;
                         logicaInteractuableScript.DesactivarMano();
                         CinematicaAnimator.SetBool("Sol", true);
+                              disparadorSonidosScript.DispararSonido(7);
 
                     }
 
@@ -63,7 +68,17 @@ public class LogicaAltarFinal : MonoBehaviour
                     {
 
                         LunaObject.SetActive(true);
-               
+                        
+                        CinematicaAnimator.enabled = true;
+
+                        mainCamera.enabled = false; 
+                        CamaraCinematica.enabled = true; 
+                        firstPersonMovementScript.estatico=true;
+                        firstPersonLookScript.estatico=true;
+                        logicaInteractuableScript.desactivarUI=true;
+                        logicaInteractuableScript.DesactivarMano();
+                        CinematicaAnimator.SetBool("Luna", true);
+                              disparadorSonidosScript.DispararSonido(7);
 
                     }
 

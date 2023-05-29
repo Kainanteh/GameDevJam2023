@@ -23,6 +23,9 @@ public class LogicaPuerta : MonoBehaviour
 
     public LogicaInteractuable logicaInteractuableScript;
 
+    public DisparadorSonidos disparadorSonidosScript;
+
+
     private void Awake()
     {
         material = renderer.material;
@@ -47,6 +50,7 @@ public class LogicaPuerta : MonoBehaviour
                     animator.SetBool(booleanParameterName, true);
                     CambiarColorMaterial(colorFinal);
                     InteracciactuablePuerta(true);
+                    disparadorSonidosScript.DispararSonido(4);
                 }
             }
         }

@@ -17,6 +17,9 @@ public class LogicaBotonSala3 : MonoBehaviour
 
     public LogicaBoton LogicaBotonScript;
 
+
+    public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -47,6 +50,8 @@ public class LogicaBotonSala3 : MonoBehaviour
                     animatorBoton.SetBool("BotonPulsado", true);
                     LogicaBotonScript.BotonAbierto();
                     LogicaBotonScript.botonabierto = true;
+                    disparadorSonidosScript.DispararSonido(3);
+                        disparadorSonidosScript.DispararSonido(2);
                     
                 
                 }

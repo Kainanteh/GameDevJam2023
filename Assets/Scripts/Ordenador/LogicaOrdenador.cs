@@ -42,6 +42,8 @@ public class LogicaOrdenador : MonoBehaviour
 
     public LogicaInteractuable LogicaInteractuableScript;
 
+    public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -154,14 +156,16 @@ public class LogicaOrdenador : MonoBehaviour
     {
         if (direccionJugador == direccionAleatoria)
         {
-            Debug.Log("¡Correcto! Dirección elegida correctamente.");
+            // Debug.Log("¡Correcto! Dirección elegida correctamente.");
+            disparadorSonidosScript.DispararSonido(3);
             GenerarDireccionAleatoria();
             FallosMision = 0;
             FObjectFalse();
         }
         else
         {
-            Debug.Log("Incorrecto. Intenta de nuevo.");
+            // Debug.Log("Incorrecto. Intenta de nuevo.");
+            disparadorSonidosScript.DispararSonido(0);
             GenerarDireccionAleatoria();
             FallosMision++;
             FGameObject[FallosMision-1].SetActive(true);
@@ -169,6 +173,7 @@ public class LogicaOrdenador : MonoBehaviour
 
         if(FallosMision == 3)
         {
+            disparadorSonidosScript.DispararSonido(2);
             logicaPuertaScript.PuertaActivada = true;
             logicaPuertaScript.InteracciactuablePuerta(false);
             MisionCheckSala0 = true;

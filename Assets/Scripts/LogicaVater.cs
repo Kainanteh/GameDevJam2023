@@ -20,6 +20,8 @@ public class LogicaVater : MonoBehaviour
 
     public LogicaInteractuable logicaInteractuableScript;
 
+        public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -42,11 +44,13 @@ public class LogicaVater : MonoBehaviour
                         vaterAnimator.SetBool("tapa_abierta", true);
                         vater_abierto = true;
                         logicaInteractuableScript.desactivarUI = true;
+                              disparadorSonidosScript.DispararSonido(8);
                     }
                     else
                     {
                         LLave_objeto.SetActive(false);
                         logicaCerradurasScript.Llave_Sala_1 = true;
+                            disparadorSonidosScript.DispararSonido(9);
                     }
 
             

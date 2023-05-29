@@ -16,6 +16,9 @@ public class LogicaAltarSol : MonoBehaviour
 
     public LogicaSolLuna logicaSolLunaScript ;
 
+    public DisparadorSonidos disparadorSonidosScript;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -42,12 +45,14 @@ public class LogicaAltarSol : MonoBehaviour
                             sol_cogido = true;
                             sol.SetActive(false);
                             logicaSolLunaScript.Sol = true;
+                               disparadorSonidosScript.DispararSonido(6);
                         }
                         else
                         {
                             sol_cogido = false;
                             sol.SetActive(true);
                             logicaSolLunaScript.Sol = false;
+                              disparadorSonidosScript.DispararSonido(7);
                         }
                     
 

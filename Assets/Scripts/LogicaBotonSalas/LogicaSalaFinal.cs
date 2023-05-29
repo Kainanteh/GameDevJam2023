@@ -12,6 +12,8 @@ public class LogicaSalaFinal : MonoBehaviour
     public Animator animator;
     public string booleanParameterName = "IsTrue";
 
+    public DisparadorSonidos disparadorSonidosScript;
+
   
 
     public void AbrirPuertaFinal()
@@ -20,6 +22,7 @@ public class LogicaSalaFinal : MonoBehaviour
         if(Activador1 == true && Activador2 == true && Activador3 == true)
         {
             animator.SetBool(booleanParameterName, true);
+             disparadorSonidosScript.DispararSonido(5);
         }
 
     }

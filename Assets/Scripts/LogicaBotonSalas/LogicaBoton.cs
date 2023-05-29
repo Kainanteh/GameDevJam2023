@@ -24,6 +24,8 @@ public class LogicaBoton : MonoBehaviour
 
     public LogicaInteractuable LogicaInteractuableScript;
 
+    public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -53,6 +55,7 @@ public class LogicaBoton : MonoBehaviour
                 {
                     // animator.SetBool(booleanParameterName, true);
                     animatorBoton.SetBool("BotonPulsado", true);
+                    disparadorSonidosScript.DispararSonido(3);
                     if(LineadosLerpScript != null && botonpulsado == false)
                     {
                         LineadosLerpScript.ActivarColorLerp();

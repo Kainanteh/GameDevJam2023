@@ -18,6 +18,8 @@ public class LogicaCajonComoda : MonoBehaviour
     public LogicaCerraduras logicaCerradurasScript;
 
     public LogicaInteractuable logicaInteractuableScript;
+
+          public DisparadorSonidos disparadorSonidosScript;
     
 
     private void Start()
@@ -42,11 +44,13 @@ public class LogicaCajonComoda : MonoBehaviour
                         cajonAnimator.SetBool("cajon_abierto", true);
                         cajon_abierto = true;
                         logicaInteractuableScript.desactivarUI = true;
+                           disparadorSonidosScript.DispararSonido(8);
                     }
                     else
                     {
                         LLave_objeto.SetActive(false);
                         logicaCerradurasScript.Llave_Sala_2 = true;
+                         disparadorSonidosScript.DispararSonido(9);
                     }
 
             

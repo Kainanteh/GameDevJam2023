@@ -36,6 +36,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
 
     public LogicaInteractuable LogicaInteractuableScript;
 
+    public DisparadorSonidos disparadorSonidosScript;
 
 
     private void Start()
@@ -108,8 +109,7 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
             
 
                 }
-                else if(Input.anyKeyDown &&
-                    (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKey ("enter")))
+                else if (Input.anyKeyDown && (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return)))
                 {
                     Texto_input.GetComponent<TextMeshProUGUI>().text = "";
                     // inputRecogido = "0";
@@ -126,11 +126,13 @@ public class LogicaOrdenadorSala2 : MonoBehaviour
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
                         LogicaInteractuableScript.desactivarUI = true;
+                          disparadorSonidosScript.DispararSonido(2);
                     }
                     else
                     {
                         Texto.GetComponent<TextMeshProUGUI>().text = "Error, try again";
                         inputRecogido = "";
+                         disparadorSonidosScript.DispararSonido(0);
                     }
 
                 }

@@ -20,6 +20,8 @@ public class LogicaCajonEscritorio : MonoBehaviour
 
     public LogicaInteractuable logicaInteractuableScript;
 
+      public DisparadorSonidos disparadorSonidosScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -42,11 +44,13 @@ public class LogicaCajonEscritorio : MonoBehaviour
                         cajonAnimator.SetBool("cajon_abierto", true);
                         cajon_abierto = true;
                         logicaInteractuableScript.desactivarUI = true;
+                          disparadorSonidosScript.DispararSonido(8);
                     }
                     else
                     {
                         LLave_objeto.SetActive(false);
                         logicaCerradurasScript.Llave_Sala_0 = true;
+                         disparadorSonidosScript.DispararSonido(9);
                     }
 
             

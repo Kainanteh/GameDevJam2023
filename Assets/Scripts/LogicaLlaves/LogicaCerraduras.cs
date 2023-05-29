@@ -36,6 +36,9 @@ public class LogicaCerraduras : MonoBehaviour
 
     public bool PuertaLunaAbierta = false;
 
+           public DisparadorSonidos disparadorSonidosScript;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -61,21 +64,25 @@ public class LogicaCerraduras : MonoBehaviour
                     {
                         Llave_Sala_0_Object.SetActive(true);
                         animatorSala0.SetBool( "llave_introducida" , true );
+                           disparadorSonidosScript.DispararSonido(4);
                     }
                     if( Llave_Sala_1 == true )
                     {
                         Llave_Sala_1_Object.SetActive(true);
                         animatorSala1.SetBool( "llave_introducida" , true );
+                           disparadorSonidosScript.DispararSonido(4);
                     }
                     if( Llave_Sala_2 == true )
                     {
                         Llave_Sala_2_Object.SetActive(true);
                         animatorSala2.SetBool( "llave_introducida" , true );
+                           disparadorSonidosScript.DispararSonido(4);
                     }
                     if( Llave_Sala_3 == true )
                     {
                         Llave_Sala_3_Object.SetActive(true);
                         animatorSala3.SetBool( "llave_introducida" , true );
+                           disparadorSonidosScript.DispararSonido(4);
                     }
 
                 }
@@ -94,6 +101,7 @@ public class LogicaCerraduras : MonoBehaviour
         {
             animator.SetBool(booleanParameterName, true);
             PuertaLunaAbierta = true;
+             disparadorSonidosScript.DispararSonido(5);
         }
 
     }
