@@ -17,6 +17,9 @@ public class LogicaCajonComoda : MonoBehaviour
 
     public LogicaCerraduras logicaCerradurasScript;
 
+    public LogicaInteractuable logicaInteractuableScript;
+    
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -38,6 +41,7 @@ public class LogicaCajonComoda : MonoBehaviour
                     {
                         cajonAnimator.SetBool("cajon_abierto", true);
                         cajon_abierto = true;
+                        logicaInteractuableScript.desactivarUI = true;
                     }
                     else
                     {

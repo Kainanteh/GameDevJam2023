@@ -16,6 +16,8 @@ public class LogicaEstanteria : MonoBehaviour
 
     public LogicaCerraduras logicaCerradurasScript;
 
+    public LogicaInteractuable logicaInteractuableScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -38,6 +40,7 @@ public class LogicaEstanteria : MonoBehaviour
                         llave_cogida = true;
                         LLave_objeto.SetActive(false);
                         logicaCerradurasScript.Llave_Sala_3 = true;
+                        logicaInteractuableScript.desactivarUI = true;
                     }
                  
 

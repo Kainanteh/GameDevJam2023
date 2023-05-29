@@ -21,6 +21,8 @@ public class LogicaPuerta : MonoBehaviour
     public Renderer renderer;
     private  Material material;
 
+    public LogicaInteractuable logicaInteractuableScript;
+
     private void Awake()
     {
         material = renderer.material;
@@ -44,6 +46,7 @@ public class LogicaPuerta : MonoBehaviour
                 {
                     animator.SetBool(booleanParameterName, true);
                     CambiarColorMaterial(colorFinal);
+                    InteracciactuablePuerta(true);
                 }
             }
         }
@@ -52,5 +55,10 @@ public class LogicaPuerta : MonoBehaviour
     public void CambiarColorMaterial(Color color)
     {
         material.SetColor("_BaseColor", color);
+    }
+
+    public void InteracciactuablePuerta(bool inter)
+    {
+        logicaInteractuableScript.desactivarUI = inter;
     }
 }

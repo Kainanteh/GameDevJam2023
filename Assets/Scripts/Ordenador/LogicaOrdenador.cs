@@ -170,6 +170,7 @@ public class LogicaOrdenador : MonoBehaviour
         if(FallosMision == 3)
         {
             logicaPuertaScript.PuertaActivada = true;
+            logicaPuertaScript.InteracciactuablePuerta(false);
             MisionCheckSala0 = true;
             Texto.GetComponent<TextMeshProUGUI>().text = "¡Door Open!";
             LogicaBotonScript.BotonAbierto();
@@ -182,7 +183,7 @@ public class LogicaOrdenador : MonoBehaviour
                         FirstPersonMovementScript.estatico=false;
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
-                        LogicaInteractuableScript.desactivarUI = false;
+                        LogicaInteractuableScript.desactivarUI = true;
         }
 
     }

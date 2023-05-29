@@ -18,6 +18,8 @@ public class LogicaVater : MonoBehaviour
 
     public LogicaCerraduras logicaCerradurasScript;
 
+    public LogicaInteractuable logicaInteractuableScript;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -39,6 +41,7 @@ public class LogicaVater : MonoBehaviour
                     {
                         vaterAnimator.SetBool("tapa_abierta", true);
                         vater_abierto = true;
+                        logicaInteractuableScript.desactivarUI = true;
                     }
                     else
                     {

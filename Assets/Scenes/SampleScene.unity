@@ -8753,6 +8753,7 @@ MonoBehaviour:
   LLave_objeto: {fileID: 1965077694}
   cajon_abierto: 0
   logicaCerradurasScript: {fileID: 1520128311}
+  logicaInteractuableScript: {fileID: 347542660}
 --- !u!1 &355936837
 GameObject:
   m_ObjectHideFlags: 0
@@ -24578,6 +24579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuertaSala3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2647898422681595148, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -27930,7 +27935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.56
+      value: 27.74
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27938,7 +27943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.73
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28819,6 +28824,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_Name
       value: PuertaSala1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_IsActive
@@ -29977,6 +29986,7 @@ MonoBehaviour:
   LLave_objeto: {fileID: 1971429914}
   llave_cogida: 0
   logicaCerradurasScript: {fileID: 1520128311}
+  logicaInteractuableScript: {fileID: 1167550087}
 --- !u!114 &1167550087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35193,6 +35203,7 @@ MonoBehaviour:
   colorInicial: {r: 0.9529412, g: 0.08627451, b: 0.08627451, a: 0}
   colorFinal: {r: 0.18752226, g: 0.8113208, b: 0.22019035, a: 0}
   renderer: {fileID: 1619078838}
+  logicaInteractuableScript: {fileID: 1364637899}
 --- !u!65 &1364637898
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35206,6 +35217,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2879, y: 2.943545, z: 0.3402}
   m_Center: {x: 0.7290019, y: 1.4717726, z: 0.13365382}
+--- !u!114 &1364637899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364637894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50dbcc79d3159246bc1ce7ba4db47e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  Mano: {fileID: 953622500}
+  desactivarUI: 0
 --- !u!4 &1371034899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5458244507555280194, guid: 964599062a452be449e03e76f17025e6, type: 3}
@@ -40690,6 +40719,7 @@ MonoBehaviour:
   LLave_objeto: {fileID: 557392566}
   cajon_abierto: 0
   logicaCerradurasScript: {fileID: 1520128311}
+  logicaInteractuableScript: {fileID: 1617719530}
 --- !u!1 &1618896712
 GameObject:
   m_ObjectHideFlags: 0
@@ -41195,6 +41225,7 @@ MonoBehaviour:
   colorInicial: {r: 0.9529412, g: 0.08627451, b: 0.08627451, a: 0}
   colorFinal: {r: 0.18752226, g: 0.8113208, b: 0.22019035, a: 0}
   renderer: {fileID: 69735847}
+  logicaInteractuableScript: {fileID: 1624958823}
 --- !u!95 &1624958821
 Animator:
   serializedVersion: 5
@@ -41229,6 +41260,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2879, y: 2.943545, z: 0.3402}
   m_Center: {x: 0.7290019, y: 1.4717726, z: 0.13365382}
+--- !u!114 &1624958823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624958818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50dbcc79d3159246bc1ce7ba4db47e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  Mano: {fileID: 953622500}
+  desactivarUI: 0
 --- !u!1 &1625129713
 GameObject:
   m_ObjectHideFlags: 0
@@ -46476,6 +46525,10 @@ PrefabInstance:
       value: PuertaSala0 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -47282,6 +47335,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_Name
       value: PuertaSala2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2647898422681595148, guid: cd1331ea45a129346aa7ce10127a789c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49141,6 +49198,7 @@ MonoBehaviour:
   LLave_objeto: {fileID: 771759989}
   vater_abierto: 0
   logicaCerradurasScript: {fileID: 1520128311}
+  logicaInteractuableScript: {fileID: 1908880410}
 --- !u!1001 &1908913225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50747,6 +50805,7 @@ MonoBehaviour:
   colorInicial: {r: 0.9529412, g: 0.08627451, b: 0.08627451, a: 0}
   colorFinal: {r: 0.18752226, g: 0.8113208, b: 0.22019035, a: 0}
   renderer: {fileID: 817275806}
+  logicaInteractuableScript: {fileID: 1946155069}
 --- !u!95 &1946155067
 Animator:
   serializedVersion: 5
@@ -50781,6 +50840,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2879, y: 2.943545, z: 0.3402}
   m_Center: {x: 0.7290019, y: 1.4717726, z: 0.13365382}
+--- !u!114 &1946155069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946155064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50dbcc79d3159246bc1ce7ba4db47e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  Mano: {fileID: 953622500}
+  desactivarUI: 0
 --- !u!4 &1948532895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b909ccc78076914b9512e9973ac0db2, type: 3}
@@ -53150,6 +53227,7 @@ MonoBehaviour:
   colorInicial: {r: 0.9529412, g: 0.08627451, b: 0.08627451, a: 0}
   colorFinal: {r: 0.18752226, g: 0.8113208, b: 0.22019035, a: 0}
   renderer: {fileID: 1226399635}
+  logicaInteractuableScript: {fileID: 2043466503}
 --- !u!95 &2043466501
 Animator:
   serializedVersion: 5
@@ -53184,6 +53262,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2879, y: 2.943545, z: 0.3402}
   m_Center: {x: 0.7290019, y: 1.4717726, z: 0.13365382}
+--- !u!114 &2043466503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043466498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50dbcc79d3159246bc1ce7ba4db47e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  Mano: {fileID: 953622500}
+  desactivarUI: 1
 --- !u!1 &2053947197
 GameObject:
   m_ObjectHideFlags: 0

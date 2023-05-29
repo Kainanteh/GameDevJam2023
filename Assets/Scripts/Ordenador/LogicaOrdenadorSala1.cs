@@ -113,7 +113,7 @@ public class LogicaOrdenadorSala1 : MonoBehaviour
                         FirstPersonMovementScript.estatico=false;
                         FirstPersonLookScript.estatico=false;
                         JugadorEnOrdenador = false;
-                          LogicaInteractuableScript.desactivarUI = false;
+                          LogicaInteractuableScript.desactivarUI = true;
                     }
                     else
                     {
