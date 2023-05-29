@@ -42,5 +42,12 @@ public class LogicaInteractuable : MonoBehaviour
         }
     }
 
+    public void DesactivarMano()
+    {
+
+        Mano.SetActive(false);
+
+    }
+
 
 }
